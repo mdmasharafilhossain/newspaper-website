@@ -1,8 +1,11 @@
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../AuthProviders/AuthProviders";
 
 
 const Register = () => {
-    
+    const { createUser } = useContext(AuthContext);
+    const [errorMessage, setErrorMessage] = useState('');
     const handleRegister = e =>{
         e.preventDefault();
     }

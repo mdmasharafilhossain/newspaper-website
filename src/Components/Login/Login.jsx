@@ -1,5 +1,7 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+import { AuthContext } from "../AuthProviders/AuthProviders";
 
 
 const Login = () => {
@@ -58,10 +60,10 @@ const Login = () => {
                     </div>
                 </form>
                 <p className="font-bold mt-5 text-xl text-red-700">OR</p>
-                {/* <button onClick={hadleGoogleLogin} className="btn btn-primary bg-orange-700 border-none mt-10 hover:bg-orange-900 text-white">Google Login</button>
+                {/* <button onClick={hadleGoogleLogin} className="btn btn-primary bg-orange-700 border-none mt-10 hover:bg-orange-900 text-white">Google Login</button> */}
                 {
                     errorMessage && <p className="text-sm font-bold text-red-700">{errorMessage}</p>
-                } */}
+                }
                 <p className="text-xl mt-10">New Here?Please <Link to="/register" className="font-bold text-red-700">Register</Link></p>
             </div>
 
