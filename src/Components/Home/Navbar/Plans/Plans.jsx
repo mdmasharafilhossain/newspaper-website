@@ -84,7 +84,7 @@ const Plans = () => {
                 </div>
 
                 <button className="btn ml-12 text-base btn-secondary border-none text-black font-bold bg-blue-300 hover:bg-blue-400 w-3/4 mt-32 rounded-3xl">Get Premium Duo</button>
-                <p className="text-[12px]  text-center">For couples who reside at the same address
+                <p className="text-[12px]  text-center">For 6 people who reside at the same address
                 <span className="underline ">Terms Apply</span>
                 </p>
 

@@ -1,10 +1,31 @@
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 
 
 const Login = () => {
-    
+    const {SignIn} = useContext(AuthContext)
+    const [errorMessage, setErrorMessage] = useState('');
     const handleLogin = e =>{
         e.preventDefault();
+        console.log(e.currentTarget);
+        const form = new FormData(e.currentTarget);
+        const email = form.get('email')
+          const password = form.get('password')
+        SignIn(email,password)
+        .then(result =>{
+          console.log(result.user);
+          Swal.fire({
+              title: 'Log In',
+              text: 'Log In Successfully',
+              icon: 'success',
+              confirmButtonText: 'Ok'
+            })
+        })
+        .catch(error =>{
+          console.error(error);
+          setErrorMessage(error.message)
+  
+        });
     }
 
     return (
