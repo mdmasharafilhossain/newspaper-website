@@ -1,10 +1,11 @@
+import ErrorPage from "../ErrorPage/ErrorPage";
 
 
 
 const Home = () => {
     return (
         <div>
-           <h1>home</h1>
+           <ErrorPage></ErrorPage>
         </div>
     );
 };

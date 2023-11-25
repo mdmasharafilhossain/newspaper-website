@@ -7,11 +7,13 @@ import SubsCription from "../Components/Home/Navbar/SubsCription/SubsCription";
 import MyArticle from "../Components/Home/Navbar/MyArticle/MyArticle";
 import Login from "../Components/Login/Login";
 import Register from "../Components/Register/Register";
+import ErrorPage from "../Components/ErrorPage/ErrorPage";
 
 export const router = createBrowserRouter([
     {
       path: "/",
       element: <MainLayout></MainLayout>,
+      errorElement:<ErrorPage></ErrorPage>,
       children:[
         {
             path:"/",
