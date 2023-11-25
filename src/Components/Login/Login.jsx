@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const Login = () => {
@@ -10,7 +11,7 @@ const Login = () => {
         <div>
              <div className=" py-60">
             <div className="mt-[100px] md:mt-10 lg:mt-10 text-center   py-5">
-                <h2 className="text-4xl font-bold text-orange-600">Please login</h2>
+                <h2 className="text-4xl font-bold text-red-600">Please login</h2>
 
                 <form onSubmit={handleLogin} className="md:w-3/4 lg:w-1/2 mx-auto">
                     <div className="form-control">
@@ -30,17 +31,17 @@ const Login = () => {
                         </label>
                     </div>
                     <div className="form-control mt-6">
-                        <button className="btn btn-primary bg-orange-500 border-none font-bold text-white text-base hover:bg-orange-600">Login</button>
+                        <button className="btn btn-primary bg-red-600 border-none font-bold text-white text-base hover:bg-red-700">Login</button>
                         
                        
                     </div>
                 </form>
-                <p className="font-bold mt-5 text-xl text-orange-500">OR</p>
+                <p className="font-bold mt-5 text-xl text-red-700">OR</p>
                 {/* <button onClick={hadleGoogleLogin} className="btn btn-primary bg-orange-700 border-none mt-10 hover:bg-orange-900 text-white">Google Login</button>
                 {
                     errorMessage && <p className="text-sm font-bold text-red-700">{errorMessage}</p>
-                }
-                <p className="text-xl mt-10">New Here?Please <Link to="/register" className="font-bold text-orange-600">Register</Link></p> */}
+                } */}
+                <p className="text-xl mt-10">New Here?Please <Link to="/register" className="font-bold text-red-700">Register</Link></p>
             </div>
 
 

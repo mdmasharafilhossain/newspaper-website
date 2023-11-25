@@ -6,6 +6,7 @@ import AllArticle from "../Components/Home/Navbar/AllArticle/AllArticle";
 import SubsCription from "../Components/Home/Navbar/SubsCription/SubsCription";
 import MyArticle from "../Components/Home/Navbar/MyArticle/MyArticle";
 import Login from "../Components/Login/Login";
+import Register from "../Components/Register/Register";
 
 export const router = createBrowserRouter([
     {
@@ -35,6 +36,10 @@ export const router = createBrowserRouter([
          {
             path:"/login",
             element:<Login></Login>
+         },
+         {
+            path:"/register",
+            element:<Register></Register>
          }
       ]
     },

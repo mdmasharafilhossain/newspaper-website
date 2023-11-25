@@ -68,8 +68,8 @@ const Navbar = () => {
                     </div>
                     <div className="navbar-end">
                         <div>
-                        <Link to="/login"><button className=" text-red-700 border-4 border-red-500
-                        hover:bg-red-100 font-bold text-xl px-4 py-2 rounded-xl">Sign In</button></Link>
+                        <Link to="/login"><button className=" text-red-700 border-4 border-red-600
+                        hover:bg-red-100 font-bold text-lg px-4 py-2 rounded-xl">Sign In</button></Link>
                         </div>
                     </div>
                 </div>
