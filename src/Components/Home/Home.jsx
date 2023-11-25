@@ -1,11 +1,12 @@
-import ErrorPage from "../ErrorPage/ErrorPage";
+import Plans from "./Navbar/Plans/Plans";
+
 
 
 
 const Home = () => {
     return (
         <div>
-           <ErrorPage></ErrorPage>
+           <Plans></Plans>
         </div>
     );
 };
