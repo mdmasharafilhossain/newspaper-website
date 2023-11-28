@@ -1,12 +1,17 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProviders/AuthProviders";
 import Swal from "sweetalert2";
-import { updateProfile } from "firebase/auth";
+import { GoogleAuthProvider, getAuth, updateProfile } from "firebase/auth";
+import UseAxiosPublic from "../Hooks/UseAxiosPublic/UseAxiosPublic";
+import app from "../FireBase/Firebase";
+const auth = getAuth(app);
 
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext);
+    const AxiosPublic = UseAxiosPublic();
+    const navigate = useNavigate();
+    const { createUser,SignInWithGoogle } = useContext(AuthContext);
     const [errorMessage, setErrorMessage] = useState('');
     const handleRegister = e =>{
         e.preventDefault();
@@ -44,13 +49,25 @@ const Register = () => {
                     displayName: name,
                     photoURL: photo,
                 });
-
-                Swal.fire({
-                    title: 'Done',
-                    text: 'Register Successfully',
-                    icon: 'success',
-                    confirmButtonText: 'Ok'
-                })
+                 const UserInfo = {
+                    name:name,
+                    photo: photo,
+                    email:email
+                 }
+                 AxiosPublic.post('/users',UserInfo)
+                 .then(res =>{
+                    if(res.data.insertedId){
+                        console.log("user Added Database")
+                        Swal.fire({
+                            title: 'Done',
+                            text: 'Register Successfully',
+                            icon: 'success',
+                            confirmButtonText: 'Ok'
+                        });
+                        navigate('/');
+                    }
+                 })
+                
 
             })
             .catch(error => {
@@ -58,6 +75,36 @@ const Register = () => {
                 setErrorMessage(error.message)
             })
     }
+    const hadleGoogleLogin = e =>{
+        const googleProvider = new GoogleAuthProvider();
+        e.preventDefault();
+        SignInWithGoogle(auth,googleProvider)
+        .then(result=>{
+            console.log(result);
+            const PeopleInfo = {
+                name:result.user?.displayName,
+                photo: result.user?.photoURL,
+                email:result.user?.email
+            }
+            console.log(PeopleInfo);
+            AxiosPublic.post('/users',PeopleInfo)
+            .then(res=>{
+                if(res.data.insertedId){
+                    console.log("user Added Database")
+                    Swal.fire({
+                        title: 'Done',
+                        text: 'Register Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Ok'
+                    });
+                    navigate('/');
+                }
+            })
+        })
+        .catch(error =>{
+            console.log(error);
+        })
+      }
 
     return (
         <div>
@@ -99,6 +146,8 @@ const Register = () => {
                                 <button className="btn btn-primary bg-red-600 border-none font-bold text-white text-base hover:bg-red-700">Register</button>
                             </div>
                         </form>
+                        <p className="font-bold mt-5 text-xl text-red-700">OR</p>
+                <button onClick={hadleGoogleLogin} className="btn btn-primary bg-red-700 border-none mt-10 hover:bg-red-900 text-white">Google Login</button>
                         {
                             errorMessage && <p className="text-sm font-bold text-red-700">{errorMessage}</p>
                         }

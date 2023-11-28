@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { Outlet, createBrowserRouter } from "react-router-dom";
 import MainLayout from "../Components/MainLayout/MainLayout";
 import Home from "../Components/Home/Home";
 import AddArticle from "../Components/Home/Navbar/AddArticle/AddArticle";
@@ -11,6 +11,7 @@ import ErrorPage from "../Components/ErrorPage/ErrorPage";
 import UserProfile from "../Components/Home/Navbar/UserProfile/UserProfile";
 
 import ArticleDetails from "../Components/ArticleDetails/ArticleDetails";
+import DashBoard from "../Components/DashBoard/DashBoard";
 
 export const router = createBrowserRouter([
     {
@@ -57,5 +58,13 @@ export const router = createBrowserRouter([
          }
       ]
     },
+
+    {
+      path:"/dashboard",
+      element:<DashBoard></DashBoard>,
+      children:[
+         
+      ]
+    }
   ]);
 
