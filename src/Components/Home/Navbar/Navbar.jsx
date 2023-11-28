@@ -45,6 +45,14 @@ const Navbar = () => {
             Subscription
         </NavLink></li>
         <li><NavLink
+            to="/dashboard" style={{ fontWeight: "bold", fontSize: "20px", }}
+            className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "text-red-700 underline" : ""
+            }
+        >
+            Dashboard
+        </NavLink></li>
+        <li><NavLink
             to="/MyArticle" style={{ fontWeight: "bold", fontSize: "20px", }}
             className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "text-red-700 underline" : ""
