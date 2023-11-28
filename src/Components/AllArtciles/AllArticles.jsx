@@ -18,7 +18,7 @@ const AllArticles = ({article}) => {
                 <figure><img className="h-60 w-full"  src={image} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title text-center font-bold text-2xl text-red-600">{title}</h2>
-                    <p className="text-justify">{des} <Link to={`serviceDetails/${_id}`}><button className="text-base font-bold text-red-600">Details</button></Link></p>
+                    <p className="text-justify">{des} <Link to={`/serviceDetails/${_id}`}><button className="text-base font-bold text-red-600">Details</button></Link></p>
                     <div className="flex ">
                         <div>
                            {/* <img  className="h-10 w-12" src={service_provider_image} alt="" /> */}
@@ -27,6 +27,9 @@ const AllArticles = ({article}) => {
                             <h1 className="ml-3  text-red-600 font-bold">{publisher}</h1>
                         </div>
                         
+                    </div>
+                    <div>
+                        <p className="text-xl font-bold text-center border-2 bg-red-600 text-white">{name}</p>
                     </div>
                     
                     

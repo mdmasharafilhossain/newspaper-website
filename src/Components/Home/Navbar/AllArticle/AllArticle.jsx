@@ -46,11 +46,10 @@ const AllArticle = () => {
 
             <div className="grid grid-cols-3 gap-10  container mx-auto">
                 {
-                    art.map(article => <InfiniteScroll dataLength={art.length} key={article.id} article={article}>
-
+                    art.map(article =>  
                         <AllArticles article={article}></AllArticles>
 
-                    </InfiniteScroll>)
+                    )
                 }
             </div>
         </div>

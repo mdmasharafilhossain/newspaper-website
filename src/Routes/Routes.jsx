@@ -10,6 +10,8 @@ import Register from "../Components/Register/Register";
 import ErrorPage from "../Components/ErrorPage/ErrorPage";
 import UserProfile from "../Components/Home/Navbar/UserProfile/UserProfile";
 
+import ArticleDetails from "../Components/ArticleDetails/ArticleDetails";
+
 export const router = createBrowserRouter([
     {
       path: "/",
@@ -47,6 +49,11 @@ export const router = createBrowserRouter([
          {
             path:"/UserProfile",
             element:<UserProfile></UserProfile>
+         },
+         {
+            path:"/serviceDetails/:id",
+            element:<ArticleDetails></ArticleDetails>,
+            loader: ()=>fetch('http://localhost:5000/article')
          }
       ]
     },
