@@ -1,4 +1,4 @@
-import { Outlet, createBrowserRouter } from "react-router-dom";
+import {  createBrowserRouter } from "react-router-dom";
 import MainLayout from "../Components/MainLayout/MainLayout";
 import Home from "../Components/Home/Home";
 import AddArticle from "../Components/Home/Navbar/AddArticle/AddArticle";
@@ -12,6 +12,10 @@ import UserProfile from "../Components/Home/Navbar/UserProfile/UserProfile";
 
 import ArticleDetails from "../Components/ArticleDetails/ArticleDetails";
 import DashBoard from "../Components/DashBoard/DashBoard";
+import AllUser from "../Components/DashBoard/AllUser/AllUser";
+
+import AddPublisher from "../Components/DashBoard/AddPublisher/AddPublisher";
+import AllArtile from "../Components/DashBoard/AllArticle/AllArtile";
 
 export const router = createBrowserRouter([
     {
@@ -63,7 +67,19 @@ export const router = createBrowserRouter([
       path:"/dashboard",
       element:<DashBoard></DashBoard>,
       children:[
-         
+            {
+               path:"/dashboard/allUser",
+               element:<AllUser></AllUser>
+            },
+            {
+               path:"/dashboard/allArticle",
+               element:<AllArtile></AllArtile>
+            },
+            {
+               path:"/dashboard/addPublisher",
+               element:<AddPublisher></AddPublisher>
+            }
+
       ]
     }
   ]);

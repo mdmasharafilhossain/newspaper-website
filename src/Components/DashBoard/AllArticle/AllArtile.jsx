@@ -1,0 +1,11 @@
+
+
+const AllArtile = () => {
+    return (
+        <div>
+            <h2>All Article</h2>
+        </div>
+    );
+};
+
+export default AllArtile;
