@@ -1,7 +1,13 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import UseAxiosPublic from "../../../Hooks/UseAxiosPublic/UseAxiosPublic";
+import Swal from "sweetalert2";
 
 const AllArticles = ({art}) => {
+    const AxiosPublic = UseAxiosPublic();
+    const navigate = useNavigate();
     const {_id,title,image,publisher,description,email,tag,views,author_name,author_photo,date,name} =art;
+    const [isPremium, setIsPremium] = useState(false);
     const LimitDes = (description, limit) => {
         const words = description.split(' ');
         if (words.length > limit) {
@@ -10,6 +16,36 @@ const AllArticles = ({art}) => {
         return description;
     };
     const des = LimitDes(description, 20);
+     
+    const handaleMakePremium = e =>{
+    e.preventDefault();
+    setIsPremium(!isPremium);
+    const ArticlePremiumInfo = {
+        title,
+        image,
+        publisher,
+        description,
+}
+    console.log(ArticlePremiumInfo);
+    AxiosPublic.post('/premiumArticle',ArticlePremiumInfo)
+    .then(res=>{
+        console.log(res.data);
+        if(res.data.insertedId){
+            console.log("Article Added Database")
+            Swal.fire({
+                title: 'Done',
+                text: `${title} Is Premium Now`,
+                icon: 'success',
+                confirmButtonText: 'Ok'
+            });
+            navigate('/dashboard/allArticle');
+        }
+    })
+
+    }
+
+ 
+
     return (
         <div>
             <div>
@@ -31,10 +67,10 @@ const AllArticles = ({art}) => {
                         
                     </div>
                     <div>
-                            <h1 className="ml-3  text-red-600 font-bold">Date:{date}</h1>
+                            <h1 className="ml-3  text-red-600 font-bold">Date: {date}</h1>
                         </div>
                     <div>
-                            <h1 className="ml-3  text-red-600 font-bold">Publisher:{publisher}</h1>
+                            <h1 className="ml-3  text-red-600 font-bold">Publisher:   {publisher}</h1>
                         </div>
 
                     {/* <div>
@@ -46,7 +82,13 @@ const AllArticles = ({art}) => {
                     </div>
                     <div className="flex justify-around gap-2">
                         <button className="btn w-1/2">Delete</button>
-                        <button className="btn w-1/2">Make Premium</button>
+                        <button
+                         onClick={handaleMakePremium}
+                        className="btn w-1/2">{isPremium ? <>
+                         
+                         <button className="btn bg-red-600 w-full text-white">Premium</button>
+                        
+                        </> : 'Make Premium'}</button>
                     </div>
                     
                     
