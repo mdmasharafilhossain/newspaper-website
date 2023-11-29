@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import useAdmin from "../Hooks/useAdmin/useAdmin";
 
 
@@ -24,8 +24,10 @@ const DashBoard = () => {
 
                 : 
                 <>
-               <div className="text-5xl font-bold text-red-700 mt-[400px] ml-96">
-                    DashBoard Only For Admin!!! 
+               <div >
+                    <h2 className="text-5xl font-bold text-red-700 mt-[400px] ml-96">DashBoard Only For Admin!!!</h2> 
+
+                    <Link to="/"><button className="btn mt-10 ml-[600px] bg-red-600 text-white text-lg">Go To Home</button></Link>
                 </div>
                  
                  </>
