@@ -60,13 +60,21 @@ const Navbar = () => {
         >
             My Article
         </NavLink></li>
+        <li><NavLink
+            to="/premiumArticle" style={{ fontWeight: "bold", fontSize: "20px", }}
+            className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "text-red-700 underline" : ""
+            }
+        >
+           Premium Article
+        </NavLink></li>
         
 
     </>
     return (
         <div>
             <div className='shadow-lg bg-base-100 fixed top-0 left-0 right-0 z-50'>
-                <div className="navbar bg-base-100 container mx-auto">
+                <div className="navbar bg-base-100 ">
                     <div className="navbar-start">
                         <div className="dropdown">
                             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -76,14 +84,14 @@ const Navbar = () => {
                              {NavLinks}
                             </ul>
                         </div>
-                        <img className='h-14' src={logo} alt="" />
+                        <img className='h-14 ml-10' src={logo} alt="" />
                     </div>
                     <div className="navbar-center hidden lg:flex">
                         <ul className="menu menu-horizontal px-1">
                             {NavLinks}
                         </ul>
                     </div>
-                    <div className="navbar-end flex">
+                    <div className="navbar-end flex mr-10 space-x-2">
                     <div>
                             <h2 className="mt-4 text-xl font-bold text-orange-600-600">{user?.displayName
 

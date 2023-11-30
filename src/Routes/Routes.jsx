@@ -16,6 +16,9 @@ import AllUser from "../Components/DashBoard/AllUser/AllUser";
 
 import AddPublisher from "../Components/DashBoard/AddPublisher/AddPublisher";
 import AllArtile from "../Components/DashBoard/AllArticle/AllArtile";
+import PremiumArticle from "../Components/Home/Navbar/PremiumArticle/PremiumArticle";
+
+import PremiumArticleDetails from './../Components/Home/Navbar/PremiumArticle/PremiumArtilceDetails/PremiumArticleDetails';
 
 export const router = createBrowserRouter([
     {
@@ -56,10 +59,20 @@ export const router = createBrowserRouter([
             element:<UserProfile></UserProfile>
          },
          {
+            path:"/premiumArticle",
+            element:<PremiumArticle></PremiumArticle>
+         },
+         {
+            path:"/serviceDetails/:id",
+            element:<PremiumArticleDetails></PremiumArticleDetails>,
+            loader: ()=>fetch('http://localhost:5000/premiumArticle')
+         },
+         {
             path:"/serviceDetails/:id",
             element:<ArticleDetails></ArticleDetails>,
             loader: ()=>fetch('http://localhost:5000/article')
-         }
+         },
+        
       ]
     },
 

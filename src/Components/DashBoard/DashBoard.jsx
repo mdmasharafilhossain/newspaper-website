@@ -1,12 +1,18 @@
 import { Link, NavLink, Outlet } from "react-router-dom";
 import useAdmin from "../Hooks/useAdmin/useAdmin";
+import { useState } from "react";
 
 
 
 const DashBoard = () => {
+    
     const [isAdmin] = useAdmin();
     return (
         <div className="flex container mx-auto">
+
+           
+
+
             {
                 isAdmin ? <>
                 
@@ -32,6 +38,9 @@ const DashBoard = () => {
                  
                  </>
             }
+            <div>
+            Hiii
+           </div>
            <div className="flex-1">
            <Outlet></Outlet>
            </div>
