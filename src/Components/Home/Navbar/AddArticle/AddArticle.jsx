@@ -1,14 +1,47 @@
 import { useForm } from "react-hook-form";
 import UseAxiosPublic from "../../../Hooks/UseAxiosPublic/UseAxiosPublic";
+import { AuthContext } from "../../../AuthProviders/AuthProviders";
+import { useContext } from "react";
+import Swal from "sweetalert2";
 
-const image_Hosting_key = import.meta.env.VITE_IMAGE_UPLOAD;
+const image_Hosting_key = "23272cf172fd85ad9006a154ec724204";
 const Imgae_hosting_key = `https://api.imgbb.com/1/upload?key=${image_Hosting_key}`
 const AddArticle = () => {
+    const {user} = useContext(AuthContext)
     const { register, handleSubmit } = useForm();
     const axiosPublic = UseAxiosPublic();
     const onSubmit = async (data) => {
         console.log(data);
-       
+        const ImageFile = {image:data.image[0]}
+       const res = await axiosPublic.post(Imgae_hosting_key,ImageFile,{
+        headers: {
+            'content-type': 'multipart/form-data'
+        }
+       });
+       console.log(res.data);
+       if(res.data.success){
+        const articleInfo = {
+            title: data.title,
+            image: res.data.data.display_url,
+            publisher: data.publisher,
+            description: data.description,
+            tag: data.tag,
+            email:user?.email
+
+        }
+        // console.log(articleInfo);
+        const ArticleRes = await axiosPublic.post('/article',articleInfo);
+        console.log(ArticleRes.data);
+        if(ArticleRes.data.insertedId){
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Article Added Successfully",
+                showConfirmButton: false,
+                timer: 1500
+              });
+        }
+       }
     
     }
     return (
