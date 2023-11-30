@@ -7,18 +7,25 @@ import { AuthContext } from "../../AuthProviders/AuthProviders";
 
 const AllArtile = () => {
     const [page,setPage]= useState(2);
+    const [limit ,setLimit] = useState(3);
     const {loading} = useContext(AuthContext);
     const axiosSecure = UseAxiosSecure();
-    const { data: {article = [],ArticleCount} } = useQuery({
+    const { data: {result : article = [],ArticleCount} = {}} = useQuery({
+        
         queryKey: ['article',page],
         enabled:!loading,
         queryFn: async () => {
-            const res = await axiosSecure.get(`/article/premium?page=${page}`);
+            const res = await axiosSecure.get(`/article/premium?page=${page}&limit=${limit}`);
+            console.log(res.data)
             return res.data;
+            
 
         }
+        
 
-    })
+    });
+    const totalPages = Math.ceil(ArticleCount / 3);
+    const pages = [...new Array(totalPages).fill(0)]
     return (
         <div>
             <h2 className="text-4xl text-center  mt-10">All  Articles </h2>
@@ -30,10 +37,14 @@ const AllArtile = () => {
             }
            </div>
            <div className="text-center mt-10 ">
-            <button onClick={()=> setPage(page - 1)}
+           {
+            pages.map((item,index)=><button onClick={()=> setPage(index)}
+            className="btn bg-red-600 text-white">{index+1}</button>)
+           }
+            {/* <button onClick={()=> setPage(page > 0 ? page - 1 : page)}
             className="btn bg-red-600 text-white">Previous</button>
-            <button onClick={()=> setPage(page + 1)}
-            className="btn bg-red-600 text-white ml-10">Next</button>
+            <button onClick={()=> setPage(page > 0 ? page + 1 : page)}
+            className="btn bg-red-600 text-white ml-10">Next</button> */}
            </div>
         
         </div>
