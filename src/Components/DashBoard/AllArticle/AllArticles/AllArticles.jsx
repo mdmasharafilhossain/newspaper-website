@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import UseAxiosPublic from "../../../Hooks/UseAxiosPublic/UseAxiosPublic";
 import Swal from "sweetalert2";
 
-const AllArticles = ({art}) => {
+const AllArticles = ({art,refetch}) => {
     const AxiosPublic = UseAxiosPublic();
     const navigate = useNavigate();
     const {_id,title,image,publisher,description,email,tag,views,author_name,author_photo,date,name} =art;
@@ -44,7 +44,33 @@ const AllArticles = ({art}) => {
 
     }
 
- 
+    const handleDelete = (art) =>{
+        
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+          }).then(async (result) => {
+            if (result.isConfirmed) {
+                const res = await AxiosPublic.delete(`/article/premium/${_id}`);
+                console.log(res.data);
+            if(res.data.deletedCount){
+                refetch();
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Delete SuccessFully",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+            }
+            }
+          });
+    }
 
     return (
         <div>
@@ -81,7 +107,9 @@ const AllArticles = ({art}) => {
                         <button className="btn w-1/2">Decline</button>
                     </div>
                     <div className="flex justify-around gap-2">
-                        <button className="btn w-1/2">Delete</button>
+                        <button onClick={()=>handleDelete(art)}
+                        className="btn w-1/2">Delete
+                        </button>
                         <button
                          onClick={handaleMakePremium}
                         className="btn w-1/2">{isPremium ? <>

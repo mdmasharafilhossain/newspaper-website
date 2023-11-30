@@ -10,7 +10,7 @@ const AllArtile = () => {
     const [limit ,setLimit] = useState(3);
     const {loading} = useContext(AuthContext);
     const axiosSecure = UseAxiosSecure();
-    const { data: {result : article = [],ArticleCount = 0} = {}} = useQuery({
+    const {refetch, data: {result : article = [],ArticleCount = 0} = {}} = useQuery({
         
         queryKey: ['article',page],
         enabled:!loading,
@@ -32,7 +32,7 @@ const AllArtile = () => {
            <div className="grid grid-cols-3  mx-10 gap-10 mt-20">
             { 
               
-              article.map(art=> <AllArticles key={art._id} art={art}></AllArticles>)
+              article.map(art=> <AllArticles key={art._id} refetch={refetch} art={art}></AllArticles>)
             
             }
            </div>
