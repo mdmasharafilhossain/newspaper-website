@@ -6,11 +6,11 @@ import { AuthContext } from "../../AuthProviders/AuthProviders";
 
 
 const AllArtile = () => {
-    const [page,setPage]= useState(2);
+    const [page,setPage]= useState(0);
     const [limit ,setLimit] = useState(3);
     const {loading} = useContext(AuthContext);
     const axiosSecure = UseAxiosSecure();
-    const { data: {result : article = [],ArticleCount} = {}} = useQuery({
+    const { data: {result : article = [],ArticleCount = 0} = {}} = useQuery({
         
         queryKey: ['article',page],
         enabled:!loading,
@@ -36,15 +36,12 @@ const AllArtile = () => {
             
             }
            </div>
-           <div className="text-center mt-10 ">
+           <div className="text-center mt-10 mb-10 ">
            {
             pages.map((item,index)=><button onClick={()=> setPage(index)}
-            className="btn bg-red-600 text-white">{index+1}</button>)
+            className={`btn border  ${page === index ? "bg-slate-400 text-black":"bg-red-600 text-white"} `}>{index+1}</button>)
            }
-            {/* <button onClick={()=> setPage(page > 0 ? page - 1 : page)}
-            className="btn bg-red-600 text-white">Previous</button>
-            <button onClick={()=> setPage(page > 0 ? page + 1 : page)}
-            className="btn bg-red-600 text-white ml-10">Next</button> */}
+           
            </div>
         
         </div>

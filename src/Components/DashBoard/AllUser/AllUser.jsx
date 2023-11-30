@@ -2,18 +2,19 @@
 import { useQuery } from '@tanstack/react-query';
 import UseAxiosSecure from './../../Hooks/UseAxiosSecure/UseAxiosSecure';
 import Swal from 'sweetalert2';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../../AuthProviders/AuthProviders';
 
 const AllUser = () => {
     const {loading} = useContext(AuthContext);
-
+    const [page,setPage]= useState(0);
     const axiosSecure = UseAxiosSecure();
-    const { refetch, data: users = [] } = useQuery({
+    const { refetch, data: {result : users = [], UsersCount = 0} = {} } = useQuery({
         queryKey: ['users'],
-        enabled:!loading,
+        
         queryFn: async () => {
-            const res = await axiosSecure.get('/users');
+            const res = await axiosSecure.get(`/users/pagination?page=${page}`);
+            console.log(res.data)
             return res.data;
 
         }
@@ -36,7 +37,8 @@ const AllUser = () => {
         }
      })
     }
-
+    const totalPages = Math.ceil(UsersCount / 5);
+    const pages = [...new Array(totalPages).fill(0)]
     return (
         <div>
             <div className="flex justify-evenly my-6">
@@ -92,6 +94,13 @@ const AllUser = () => {
                  
                 </table>
             </div>
+            <div className="text-center mt-10 mb-10 ">
+           {
+            pages.map((item,index)=><button onClick={()=> setPage(index)}
+            className={`btn border  ${page === index ? "bg-slate-400 text-black":"bg-red-600 text-white"} `}>{index+1}</button>)
+           }
+           
+           </div>
         </div>
     );
 };
