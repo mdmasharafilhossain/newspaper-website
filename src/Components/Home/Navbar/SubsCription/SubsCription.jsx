@@ -7,7 +7,7 @@ const SubsCription = () => {
           <img className="w-full h-[750px]" src="https://i.ibb.co/pKRmrxd/Screenshot-1180.png" alt="" /> 
 
           <div className="mx-[800px] mt-10">
-           <Link to="/payment"> <button className="btn w-1/2 text-center ">Take Subscription</button></Link>
+           <Link to="/payment"> <button className="btn mb-20 text-base text-center bg-red-600 text-white">Pay Only $1500 To Take Subscription</button></Link>
           </div>
         </div>
     );

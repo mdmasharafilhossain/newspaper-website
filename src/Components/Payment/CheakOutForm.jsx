@@ -1,13 +1,16 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Swal from "sweetalert2";
+import UseAxiosSecure from "../Hooks/UseAxiosSecure/UseAxiosSecure";
+import { AuthContext } from "../AuthProviders/AuthProviders";
 
 
 const CheakOutForm = () => {
+    const {user} = useContext(AuthContext);
     const [error,setError] = useState('');
     const stripe = useStripe();
     const elements = useElements();
-  
+    // const axiosSecure = UseAxiosSecure();
     
     const handleSubmit = async (event) =>{
         event.preventDefault();
@@ -39,14 +42,29 @@ const CheakOutForm = () => {
             Swal.fire({
                 position: "top-end",
                 icon: "success",
-                title: "SuccessFull",
+                title: `You  are Premium User  Now`,
                 showConfirmButton: false,
                 timer: 1500
               });
           }
     }
 
-
+    // // const handleMakePremium = user =>{
+    // //     axiosSecure.patch(`/users/admin/${user._id}`)
+    // //     .then(res=>{
+    // //        console.log(res.data);
+    // //        if(res.data.modifiedCount > 0){
+               
+    // //            Swal.fire({
+    // //                position: "top-end",
+    // //                icon: "success",
+    // //                title: `${user.name} is Premium User Now Now`,
+    // //                showConfirmButton: false,
+    // //                timer: 1500
+    // //              });
+    // //        }
+    // //     })
+    //    }
     return (
         <form onSubmit={handleSubmit}>
                 <CardElement
@@ -65,7 +83,8 @@ const CheakOutForm = () => {
           },
         }}
       />
-      <button className="btn btn-small btn-primary" type="submit" disabled={!stripe}>
+      <button  
+      className="btn btn-small btn-primary" type="submit" disabled={!stripe}>
         Pay
       </button>
             <p className="text-red-700">{error}</p>

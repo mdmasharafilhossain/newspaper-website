@@ -10,8 +10,8 @@ const AllUser = () => {
     const [page,setPage]= useState(0);
     const axiosSecure = UseAxiosSecure();
     const { refetch, data: {result : users = [], UsersCount = 0} = {} } = useQuery({
-        queryKey: ['users'],
-        
+        queryKey: ['users',page],
+        enabled:!loading,
         queryFn: async () => {
             const res = await axiosSecure.get(`/users/pagination?page=${page}`);
             console.log(res.data)
