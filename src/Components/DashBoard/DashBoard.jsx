@@ -1,11 +1,11 @@
-import { Link, NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
 import useAdmin from "../Hooks/useAdmin/useAdmin";
 import { useState } from "react";
 
 
 
 const DashBoard = () => {
-    
+    const nagivate = useNavigate();
     const [isAdmin] = useAdmin();
     return (
         <div className="flex container mx-auto">
@@ -16,16 +16,18 @@ const DashBoard = () => {
             {
                 isAdmin ? <>
                 
-  
+                
                 <div className="w-64 min-h-screen bg-red-500">
            <ul className="menu p-4 py-auto"> 
                 <li className="font-bold text-xl text-white"><NavLink to="/dashboard/allUser">All User</NavLink></li>
                 <li  className="font-bold text-xl text-white"><NavLink to="/dashboard/allArticle">All Article</NavLink></li>
                 <li  className="font-bold text-xl text-white"><NavLink to="/dashboard/addPublisher">Add  Publisher</NavLink></li>
                 <li  className="font-bold text-xl text-white"><NavLink to="/">Go to Home</NavLink></li>
+                <li  className="font-bold text-xl text-white"><NavLink to="/dashboard/statistics">Statistics</NavLink></li>
            </ul>
+           
             </div>
-
+            
                 </>
 
                 : 

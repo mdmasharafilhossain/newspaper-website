@@ -20,6 +20,7 @@ import PremiumArticle from "../Components/Home/Navbar/PremiumArticle/PremiumArti
 
 import PremiumArticleDetails from './../Components/Home/Navbar/PremiumArticle/PremiumArtilceDetails/PremiumArticleDetails';
 import Patment from "../Components/Payment/Patment";
+import Statistics from "../Components/DashBoard/Statisctics/Statistics";
 
 export const router = createBrowserRouter([
     {
@@ -97,6 +98,10 @@ export const router = createBrowserRouter([
             {
                path:"/dashboard/addPublisher",
                element:<AddPublisher></AddPublisher>
+            },
+            {
+               path:"/dashboard/statistics",
+               element:<Statistics></Statistics>
             }
 
       ]
