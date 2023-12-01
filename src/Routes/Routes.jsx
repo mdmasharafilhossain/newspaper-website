@@ -19,6 +19,7 @@ import AllArtile from "../Components/DashBoard/AllArticle/AllArtile";
 import PremiumArticle from "../Components/Home/Navbar/PremiumArticle/PremiumArticle";
 
 import PremiumArticleDetails from './../Components/Home/Navbar/PremiumArticle/PremiumArtilceDetails/PremiumArticleDetails';
+import Patment from "../Components/Payment/Patment";
 
 export const router = createBrowserRouter([
     {
@@ -72,6 +73,10 @@ export const router = createBrowserRouter([
             element:<ArticleDetails></ArticleDetails>,
             loader: ()=>fetch('http://localhost:5000/article')
          },
+         {
+            path:"/payment",
+            element:<Patment></Patment>
+         }
         
       ]
     },
