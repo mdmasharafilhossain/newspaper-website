@@ -2,12 +2,13 @@ import React from "react";
 import { Chart } from "react-google-charts";
 import UseAxiosSecure from "../../Hooks/UseAxiosSecure/UseAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import BArChart from "./BarChart/BArChart";
 
 
 const Statistics = () => {
 
     const axiosSecure = UseAxiosSecure();
-    const {refetch, data: article = []} = useQuery({
+    const {data: article = []} = useQuery({
         
         queryKey: ['article'],
         
@@ -50,6 +51,8 @@ const Statistics = () => {
       width={"100%"}
       height={"400px"}
     /> 
+
+         <BArChart></BArChart>
         </div>
     );
 };
