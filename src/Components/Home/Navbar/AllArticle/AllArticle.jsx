@@ -21,7 +21,7 @@ const AllArticle = () => {
     }
 
     return (
-        <div className="mt-20">
+        <div className="mt-32">
             <div className="mx-auto text-center w-4/12 ">
                 <h1 className="text-5xl text-red-700 border-red-400 text-center font-bold  mb-12 py-4">All Article </h1>
             </div>
