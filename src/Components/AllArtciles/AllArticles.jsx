@@ -28,9 +28,9 @@ const AllArticles = ({article}) => {
                         </div>
                         
                     </div>
-                    <div>
+                    {/* <div>
                         <p className="text-xl font-bold text-center border-2 bg-red-600 text-white">{name}</p>
-                    </div>
+                    </div> */}
                     
                     
                     

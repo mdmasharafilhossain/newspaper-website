@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const Plans = () => {
@@ -29,7 +30,7 @@ const Plans = () => {
                     
                 </div>
 
-                <button className="btn ml-12 text-base btn-secondary border-none text-black font-bold bg-pink-300 hover:bg-pink-400 w-3/4 mt-32 rounded-3xl">Try Free For 1 Months</button>
+                <Link to="/Subscription"><button className="btn ml-12 text-base btn-secondary border-none text-black font-bold bg-pink-300 hover:bg-pink-400 w-3/4 mt-32 rounded-3xl">Try Free For 1 Months</button></Link>
                 <p className="text-[12px]  text-center">Free for 1 month,then $10.99 per month after <br></br>
                 <span className="underline ">Terms Apply</span>
                 </p>
@@ -55,8 +56,8 @@ const Plans = () => {
                     
                 </div>
 
-                <button className="btn ml-12 text-base btn-secondary border-none text-black font-bold bg-yellow-300 hover:bg-yellow-400 w-3/4 mt-32 rounded-3xl">Get Premium Duo</button>
-                <p className="text-[12px]  text-center">For couples who reside at the same address
+                <Link to="/Subscription"><button className="btn ml-12 text-base btn-secondary border-none text-black font-bold bg-yellow-300 hover:bg-yellow-400 w-3/4 mt-32 rounded-3xl">Get Premium Duo</button></Link>
+                <p className="text-[12px]  text-center">For couples who reside at the same address<br></br>
                 <span className="underline ">Terms Apply</span>
                 </p>
 
@@ -83,8 +84,8 @@ const Plans = () => {
                     
                 </div>
 
-                <button className="btn ml-12 text-base btn-secondary border-none text-black font-bold bg-blue-300 hover:bg-blue-400 w-3/4 mt-32 rounded-3xl">Get Premium Duo</button>
-                <p className="text-[12px]  text-center">For 6 people who reside at the same address
+                <Link to="/Subscription"><button className="btn ml-12 text-base btn-secondary border-none text-black font-bold bg-blue-300 hover:bg-blue-400 w-3/4 mt-32 rounded-3xl">Get Premium Duo</button></Link>
+                <p className="text-[12px]  text-center">For 6 people who reside at the same address<br></br>
                 <span className="underline ">Terms Apply</span>
                 </p>
 
