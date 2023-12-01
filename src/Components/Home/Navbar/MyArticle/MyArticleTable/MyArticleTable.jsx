@@ -34,14 +34,14 @@ const MyArticleTable = ({user,index,refetch}) => {
           });
     }
 
-    const hadndleUpdate = ({e,user}) =>{
+    const hadndleUpdate = (e) =>{
         e.preventDefault();
         const form = e.target;
         const title = form.title.value;
         
         const UpdateProducts = {title}
         console.log(UpdateProducts);
-        axiosSucure.put(`/article/add/${_id}`,UpdateProducts)
+        axiosSucure.put(`/article/add/${user._id}`,UpdateProducts)
           .then(res=>{
             console.log(res.data);
             if(res.data.modifiedCount > 0){
@@ -101,7 +101,7 @@ const MyArticleTable = ({user,index,refetch}) => {
                             <div className="modal-action">
                                 <form method="dialog">
                                     {/* if there is a button in form, it will close the modal */}
-                                    <button onClick={()=>hadndleUpdate(user)}
+                                    <button onSubmit={hadndleUpdate}
                                      className="btn">Update</button>
                                 </form>
                             </div>
