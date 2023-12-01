@@ -3,6 +3,7 @@ import { Chart } from "react-google-charts";
 import UseAxiosSecure from "../../Hooks/UseAxiosSecure/UseAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import BArChart from "./BarChart/BArChart";
+import LineChart from "./LineChart/LineChart";
 
 
 const Statistics = () => {
@@ -53,6 +54,7 @@ const Statistics = () => {
     /> 
 
          <BArChart></BArChart>
+         <LineChart></LineChart>
         </div>
     );
 };

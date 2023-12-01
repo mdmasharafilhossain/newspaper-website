@@ -6,11 +6,11 @@ const BArChart = () => {
 
  const data = [
   ["Publisher", "2022 Publishes", "2023 Publishes"],
-  ["BBC, CNN", 700000, 40000],
-  ["BBC, NDTV", 70000,400000],
-  ["Aljajira, CNN", 2695000, 2896000],
-  ["CNN, BBC", 2099000, 1953000],
-  ["BBC, NDTV", 1526000, 1517000],
+  ["BBC, CNN", 7, 4],
+  ["BBC, NDTV", 7,4],
+  ["AlJajira, CNN", 5, 4],
+  ["CNN, BBC", 4, 7],
+  ["BBC, NDTV", 7,4],
 ];
 
 const options = {
