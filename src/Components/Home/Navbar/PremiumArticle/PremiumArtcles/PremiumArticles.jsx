@@ -18,7 +18,7 @@ const PremiumArticles = ({preart}) => {
                 <figure><img className="h-60 w-full"  src={image} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title text-center font-bold text-2xl text-red-600">{title}</h2>
-                    <p className="text-justify">{des} <Link to={`/serviceDetails/${_id}`}><button className="text-base font-bold text-red-600">Details</button></Link></p>
+                    <p className="text-justify">{des} <Link to={`/articleDetails/${_id}`}><button className="text-base font-bold text-red-600">Details</button></Link></p>
                     <div className="flex ">
                         <div>
                            {/* <img  className="h-10 w-12" src={service_provider_image} alt="" /> */}

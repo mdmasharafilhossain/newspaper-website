@@ -1,7 +1,10 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import { useState } from "react";
+import Swal from "sweetalert2";
 
 
 const CheakOutForm = () => {
+    const [error,setError] = useState('');
     const stripe = useStripe();
     const elements = useElements();
   
@@ -29,8 +32,17 @@ const CheakOutForm = () => {
       
           if (error) {
             console.log('error', error);
+            setError(error.message);
           } else {
             console.log('PaymentMethod', paymentMethod);
+            setError('');
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "SuccessFull",
+                showConfirmButton: false,
+                timer: 1500
+              });
           }
     }
 
@@ -56,7 +68,7 @@ const CheakOutForm = () => {
       <button className="btn btn-small btn-primary" type="submit" disabled={!stripe}>
         Pay
       </button>
-
+            <p className="text-red-700">{error}</p>
         </form>
     );
 };

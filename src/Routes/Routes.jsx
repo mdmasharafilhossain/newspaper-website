@@ -64,7 +64,7 @@ export const router = createBrowserRouter([
             element:<PremiumArticle></PremiumArticle>
          },
          {
-            path:"/serviceDetails/:id",
+            path:"/articleDetails/:id",
             element:<PremiumArticleDetails></PremiumArticleDetails>,
             loader: ()=>fetch('http://localhost:5000/premiumArticle')
          },
