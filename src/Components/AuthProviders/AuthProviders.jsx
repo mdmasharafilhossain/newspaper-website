@@ -8,7 +8,7 @@ const auth = getAuth(app);
 const AuthProviders = ({children}) => {
     const googleProvider = new GoogleAuthProvider();
     const [user,setUser] = useState(null);
-    const [loading,setLoading] =  useState(false);
+    const [loading,setLoading] =  useState(true);
     
     const createUser = (email,password) =>{
         setLoading(true);
@@ -25,7 +25,7 @@ const AuthProviders = ({children}) => {
     }
 
     const LogOut = () =>{
-        // setLoading(true);
+        setLoading(true);
         return signOut(auth);
     }
 
@@ -37,7 +37,7 @@ const AuthProviders = ({children}) => {
             setLoading(false);
         });
         return () =>{
-            return unSubscribe();
+            return unSubscribe(true);
         }
     },[]);
 
