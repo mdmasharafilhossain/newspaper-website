@@ -21,6 +21,17 @@ const Navbar = () => {
             Home
         </NavLink></li>
         <li><NavLink
+            to="/register" style={{ fontWeight: "bold", fontSize: "20px", }}
+            className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "text-red-700 underline" : ""
+            }
+        >
+           Register
+        </NavLink></li>
+       {
+        user ? 
+        <>
+         <li><NavLink
             to="/AddArticle" style={{ fontWeight: "bold", fontSize: "20px", }}
             className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "text-red-700 underline" : ""
@@ -68,14 +79,15 @@ const Navbar = () => {
         >
            Premium Article
         </NavLink></li>
-        <li><NavLink
-            to="/register" style={{ fontWeight: "bold", fontSize: "20px", }}
-            className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "text-red-700 underline" : ""
-            }
-        >
-           Register
-        </NavLink></li>
+        </>
+
+        :
+
+        <>
+        
+        </>
+       }
+        
         
 
     </>

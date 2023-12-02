@@ -1,9 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import UseAxiosSecure from "../../../Hooks/UseAxiosSecure/UseAxiosSecure";
 import PremiumArticles from "./PremiumArtcles/PremiumArticles";
+import { useEffect } from "react";
 
 
 const PremiumArticle = () => {
+    useEffect(()=>{
+        document.title = "The Independent | Premium Article"
+      },[]);
     const axiosSecure = UseAxiosSecure();
     const { data: PremiumArticle = [] } = useQuery({
         queryKey: ['PremiumArticle'],

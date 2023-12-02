@@ -1,12 +1,15 @@
 import { useForm } from "react-hook-form";
 import UseAxiosPublic from "../../../Hooks/UseAxiosPublic/UseAxiosPublic";
 import { AuthContext } from "../../../AuthProviders/AuthProviders";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import Swal from "sweetalert2";
 
 const image_Hosting_key = "23272cf172fd85ad9006a154ec724204";
 const Imgae_hosting_key = `https://api.imgbb.com/1/upload?key=${image_Hosting_key}`
 const AddArticle = () => {
+    useEffect(()=>{
+        document.title = "The Independent | Add Article"
+      },[]);
     const {user} = useContext(AuthContext)
     const { register, handleSubmit } = useForm();
     const axiosPublic = UseAxiosPublic();

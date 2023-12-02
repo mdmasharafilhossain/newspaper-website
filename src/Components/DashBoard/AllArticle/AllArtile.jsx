@@ -1,11 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import UseAxiosSecure from "../../Hooks/UseAxiosSecure/UseAxiosSecure";
 import AllArticles from "./AllArticles/AllArticles";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../AuthProviders/AuthProviders";
 
 
 const AllArtile = () => {
+    useEffect(()=>{
+        document.title = "The Independent | All Article"
+      },[]);
     const [page,setPage]= useState(0);
     const [limit ,setLimit] = useState(3);
     const {loading} = useContext(AuthContext);

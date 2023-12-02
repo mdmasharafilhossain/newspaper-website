@@ -1,10 +1,13 @@
 import { Link, NavLink, Navigate, Outlet, useNavigate } from "react-router-dom";
 import useAdmin from "../Hooks/useAdmin/useAdmin";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 
 const DashBoard = () => {
+    useEffect(()=>{
+        document.title = "The Independent | Dashboard"
+      },[]);
     const nagivate = useNavigate();
     const [isAdmin] = useAdmin();
     return (

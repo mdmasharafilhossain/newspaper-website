@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Customer from "../Customer/Customer";
 import Footer from "../Footer/Footer";
 import ShowModal from "../ShowModal/ShowModal";
@@ -12,6 +13,9 @@ import TrendingArticle from "./TrendingArticle/TrendingArticle";
 
 
 const Home = () => {
+    useEffect(()=>{
+        document.title = "The Independent | Home"
+      },[]);
     return (
         <div className="mt-20">
             <TrendingArticle></TrendingArticle>

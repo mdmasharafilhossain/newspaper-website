@@ -1,7 +1,11 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 
 const AllArticles = ({article}) => {
+    useEffect(()=>{
+        document.title = "The Independent | All Article"
+      },[]);
     const {image,title,_id,publisher,description,color,name} = article;
     const LimitDes = (description, limit) => {
         const words = description.split(' ');

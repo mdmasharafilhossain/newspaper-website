@@ -1,5 +1,5 @@
-import { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../AuthProviders/AuthProviders";
 import { GoogleAuthProvider, getAuth } from "firebase/auth";
@@ -8,6 +8,9 @@ import UseAxiosPublic from "../Hooks/UseAxiosPublic/UseAxiosPublic";
 const auth = getAuth(app);
 
 const Login = () => {
+    useEffect(()=>{
+        document.title = "The Independent | Login"
+      },[]);
     const AxiosPublic = UseAxiosPublic();
     const navigate = useNavigate();
     const {SignIn,SignInWithGoogle} = useContext(AuthContext)
@@ -27,6 +30,7 @@ const Login = () => {
               icon: 'success',
               confirmButtonText: 'Ok'
             })
+            
         })
         .catch(error =>{
           console.error(error);

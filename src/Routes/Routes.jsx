@@ -21,6 +21,7 @@ import PremiumArticle from "../Components/Home/Navbar/PremiumArticle/PremiumArti
 import PremiumArticleDetails from './../Components/Home/Navbar/PremiumArticle/PremiumArtilceDetails/PremiumArticleDetails';
 import Patment from "../Components/Payment/Patment";
 import Statistics from "../Components/DashBoard/Statisctics/Statistics";
+import PrivateRoute from "../Components/PrivateRoute/PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -34,19 +35,19 @@ export const router = createBrowserRouter([
         },
         {
             path:"/AddArticle",
-            element:<AddArticle></AddArticle>
+            element:<PrivateRoute><AddArticle></AddArticle></PrivateRoute>
         },
         {
             path:"/AllArticle",
-            element:<AllArticle></AllArticle>
+            element:<PrivateRoute><AllArticle></AllArticle></PrivateRoute>
         },
          {
             path:"/Subscription",
-            element:<SubsCription></SubsCription>
+            element:<PrivateRoute><SubsCription></SubsCription></PrivateRoute>
          },
          {
             path:"/MyArticle",
-            element:<MyArticle></MyArticle>
+            element:<PrivateRoute><MyArticle></MyArticle></PrivateRoute>
          },
          {
             path:"/login",
@@ -58,11 +59,11 @@ export const router = createBrowserRouter([
          },
          {
             path:"/UserProfile",
-            element:<UserProfile></UserProfile>
+            element:<PrivateRoute><UserProfile></UserProfile></PrivateRoute>
          },
          {
             path:"/premiumArticle",
-            element:<PremiumArticle></PremiumArticle>
+            element:<PrivateRoute><PremiumArticle></PremiumArticle></PrivateRoute>
          },
          {
             path:"/articleDetails/:id",
@@ -71,7 +72,7 @@ export const router = createBrowserRouter([
          },
          {
             path:"/serviceDetails/:id",
-            element:<ArticleDetails></ArticleDetails>,
+            element:<PrivateRoute><ArticleDetails></ArticleDetails></PrivateRoute>,
             loader: ()=>fetch('http://localhost:5000/article')
          },
          {
@@ -84,7 +85,7 @@ export const router = createBrowserRouter([
 
     {
       path:"/dashboard",
-      element:<DashBoard></DashBoard>,
+      element:<PrivateRoute><DashBoard></DashBoard></PrivateRoute>,
       errorElement:<ErrorPage></ErrorPage>,
       children:[
             {

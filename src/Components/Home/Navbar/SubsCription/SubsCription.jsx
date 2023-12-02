@@ -1,7 +1,11 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 
 const SubsCription = () => {
+  useEffect(()=>{
+    document.title = "The Independent | Subscription"
+  },[]);
     return (
         <div className="mt-32">
           <img className="w-full h-[750px]" src="https://i.ibb.co/pKRmrxd/Screenshot-1180.png" alt="" /> 

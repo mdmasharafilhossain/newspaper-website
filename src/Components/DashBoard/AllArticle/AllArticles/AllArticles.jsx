@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import UseAxiosPublic from "../../../Hooks/UseAxiosPublic/UseAxiosPublic";
 import Swal from "sweetalert2";
 
 const AllArticles = ({art,refetch}) => {
+    
     const AxiosPublic = UseAxiosPublic();
     const navigate = useNavigate();
     const {_id,title,image,publisher,description,email,tag,views,author_name,author_photo,date,name} =art;

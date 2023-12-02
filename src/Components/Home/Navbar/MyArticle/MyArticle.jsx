@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../../../AuthProviders/AuthProviders";
 import UseAxiosSecure from "../../../Hooks/UseAxiosSecure/UseAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
@@ -7,6 +7,9 @@ import MyArticleTable from "./MyArticleTable/MyArticleTable";
 
 
 const MyArticle = () => {
+    useEffect(()=>{
+        document.title = "The Independent | My Article"
+      },[]);
     const { user } = useContext(AuthContext);
     const axiosSecure = UseAxiosSecure();
     const { refetch, data: users = [], } = useQuery({
