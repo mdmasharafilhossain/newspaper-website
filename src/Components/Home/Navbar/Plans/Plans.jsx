@@ -11,7 +11,7 @@ const Plans = () => {
               {/* First Page */}
                <div className="border-2 shadow-lg border-pink-300 rounded-lg py-5 w-3/4">
                 <h2 className="mb-10 ml-5 border rounded-md font-bold w-40 px-2 py-1 bg-pink-300">Free For 1 Months</h2>
-                <div className="flex ml-5   gap-40 mb-10">
+                <div className="flex lg:ml-5   gap-40 mb-10">
                      <div className="font-bold uppercase">
                         <h2> Premium<br></br>
                          Individual</h2>

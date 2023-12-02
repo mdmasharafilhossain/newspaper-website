@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const TrendArticle = ({article}) => {
-    const {image,title,_id,publisher,description} = article;
+    const {image,title,_id,publisher,description,views} = article;
     const LimitDes = (description, limit) => {
         const words = description.split(' ');
         if (words.length > limit) {
@@ -14,17 +14,18 @@ const TrendArticle = ({article}) => {
     return (
         <div >
             <div>
-                <div className="card w-10 md:w-48 lg:w-96 h-[800px] lg:h-[600px] rounded-none bg-base-100 shadow-2xl">
-                <figure><img className="h-60 w-full"  src={image} alt="Shoes" /></figure>
+                <div className="card w-28 md:w-48 lg:w-96 h-[700px] md:h-[800px] lg:h-[600px] rounded-none bg-base-100 shadow-2xl">
+                <figure><img className="h-20 md:h-60 lg:h-60 w-40 md:w-full lg:w-full"  src={image} alt="Shoes" /></figure>
                 <div className="card-body">
-                    <h2 className="card-title text-center font-bold text-2xl text-red-600">{title}</h2>
-                    <p className="text-justify">{des} <Link to={`serviceDetails/${_id}`}><button className="text-base font-bold text-red-600">Details</button></Link></p>
-                    <div className="flex ">
-                        <div>
-                           {/* <img  className="h-10 w-12" src={service_provider_image} alt="" /> */}
-                        </div>
+                    <h2 className="card-title text-center font-bold text-xs md:text-2xl lg:text-2xl text-red-600">{title}</h2>
+                    <p className="text-justify text-xs md:text-base lg:text-base">{des} <Link to={`serviceDetails/${_id}`}><button className="text-base font-bold text-red-600">Details</button></Link></p>
+                    <div className="flex  flex-col md:flex-row  lg:flex-row justify-around">
+                        
                         <div>
                             <h1 className="ml-3  text-red-600 font-bold">{publisher}</h1>
+                        </div>
+                        <div>
+                           <h1 className="font-bold ">views:{views}</h1>
                         </div>
                     </div>
                     

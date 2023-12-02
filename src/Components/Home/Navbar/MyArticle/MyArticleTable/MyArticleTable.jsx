@@ -79,6 +79,11 @@ const MyArticleTable = ({user,index,refetch}) => {
          
         </td>
         <td>
+        <button className="btn btn-ghost">Approved</button>
+          
+         
+        </td>
+        <td>
         <button className="btn bg-red-600 text-white ml-[900px]" onClick={() => document.getElementById('my_modal_1').showModal()}>Update</button>
                     <dialog id="my_modal_1" className="modal">
                         <div className="modal-box">

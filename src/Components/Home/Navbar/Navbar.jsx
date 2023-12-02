@@ -68,6 +68,14 @@ const Navbar = () => {
         >
            Premium Article
         </NavLink></li>
+        <li><NavLink
+            to="/register" style={{ fontWeight: "bold", fontSize: "20px", }}
+            className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "text-red-700 underline" : ""
+            }
+        >
+           Register
+        </NavLink></li>
         
 
     </>
@@ -84,14 +92,14 @@ const Navbar = () => {
                              {NavLinks}
                             </ul>
                         </div>
-                        <img className='h-14 ml-10' src={logo} alt="" />
+                        <img className='h-14 lg:ml-10' src={logo} alt="" />
                     </div>
                     <div className="navbar-center hidden lg:flex">
                         <ul className="menu menu-horizontal px-1">
                             {NavLinks}
                         </ul>
                     </div>
-                    <div className="navbar-end flex mr-10 space-x-2">
+                    <div className="navbar-end flex lg:mr-10 lg:space-x-2">
                     <div>
                             <h2 className="mt-4 text-xl font-bold text-orange-600-600">{user?.displayName
 

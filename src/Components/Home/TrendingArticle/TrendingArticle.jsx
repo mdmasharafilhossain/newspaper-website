@@ -17,7 +17,10 @@ const TrendingArticle = () => {
     useEffect(()=>{
         fetch("http://localhost:5000/article")
     .then(res =>res.json())
-    .then(data =>setart(data))
+    .then(data =>{
+      const sortedArticles = data.sort((a, b) => b.views - a.views);
+      setart(sortedArticles);
+    })
     },[]);
     
   
