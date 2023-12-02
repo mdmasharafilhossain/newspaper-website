@@ -1,3 +1,4 @@
+import Footer from "../Footer/Footer";
 import ShowModal from "../ShowModal/ShowModal";
 import Count from "./Count/Count";
 import HomeCount from "./HomeCount/HomeCount";
@@ -17,7 +18,7 @@ const Home = () => {
             <Count></Count>
             
            <Plans></Plans>
-           
+           <Footer></Footer>
         </div>
     );
 };
