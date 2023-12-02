@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 
 const Plans = () => {
     return (
-        <div className="mt-20 container mx-auto">
+        <div className="mt-20 container  mx-auto">
             <div className="mx-auto text-center w-4/12 ">
             <h1 className="text-5xl text-red-700 border-red-400 text-center font-bold  mb-12 py-4">Our Plans</h1>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
+            <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
               {/* First Page */}
                <div className="border-2 shadow-lg border-pink-300 rounded-lg py-5 w-3/4">
                 <h2 className="mb-10 ml-5 border rounded-md font-bold w-40 px-2 py-1 bg-pink-300">Free For 1 Months</h2>

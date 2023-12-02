@@ -8,26 +8,36 @@ const ShowModal = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setShow(true);
-        }, 10000); 
+        }, 10000000000000000);
 
         return () => clearTimeout(timer);
     }, []);
+
+    const handleCloseModal = () =>{
+        setShow(false)
+    }
+
     return (
         <div>
 
             {show && (
 
                 <div>
-                    
 
-                    <div className="card w-1/4 mx-auto bg-red-600 text-center h-[300px] border  shadow-xl">
-                        
-                        <div className="card-body z-50 ">
-                            <h2 className="card-title text-white text-2xl ">Subscribe Now</h2>
-                            
-                            <div className="card-actions justify-end">
-                                <Link to="/Subscription"><button className="btn btn-primary">Subscribe</button></Link>
+
+                    <div className="card w-1/4 mx-auto  bg-red-600 text-center h-[300px] border fixed bottom-0 z-10  shadow-2xl">
+
+                        <div className="card-body ">
+                            <h2 className="font-bold text-white text-center text-xl ">Subscribe Now</h2>
+
+                            <div className=" ">
+                                <Link to="/Subscription"><button className="btn btn-primary w-full mt-10">Subscribe</button></Link>
                             </div>
+                            <form method="dialog">
+                                {/* if there is a button in form, it will close the modal */}
+                                <button onClick={handleCloseModal}
+                                className="btn w-full">Close</button>
+                            </form>
                         </div>
                     </div>
 
