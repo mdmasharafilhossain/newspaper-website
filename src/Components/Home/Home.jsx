@@ -1,3 +1,4 @@
+import Customer from "../Customer/Customer";
 import Footer from "../Footer/Footer";
 import ShowModal from "../ShowModal/ShowModal";
 import Count from "./Count/Count";
@@ -16,7 +17,7 @@ const Home = () => {
             <Publisher></Publisher>
             <ShowModal></ShowModal>
             <Count></Count>
-            
+            <Customer></Customer>
            <Plans></Plans>
            <Footer></Footer>
         </div>
