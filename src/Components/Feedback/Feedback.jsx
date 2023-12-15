@@ -64,7 +64,7 @@ const Feedback = () => {
                         </label>
                         <label className="input-group">
 
-                            <input type="text" defaultValue={user.displayName} readOnly placeholder="Publisher Name"  name="name" className="input input-bordered w-full" />
+                            <input type="text" defaultValue={user?.displayName} readOnly placeholder="Publisher Name"  name="name" className="input input-bordered w-full" />
                         </label>
                     </div>
                     <div className="form-control w-3/4 md:w-1/2 lg:mr-5">
@@ -73,7 +73,7 @@ const Feedback = () => {
                         </label>
                         <label className="input-group">
 
-                            <input type="text" placeholder="Publisher Photo" defaultValue={user.email} readOnly name="email" className="input input-bordered w-full" />
+                            <input type="text" placeholder="Publisher Photo" defaultValue={user?.email} readOnly name="email" className="input input-bordered w-full" />
                         </label>
                     </div>
                 </div>
