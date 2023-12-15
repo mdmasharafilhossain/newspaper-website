@@ -10,6 +10,7 @@ import Publisher from "./Publisher/Publisher";
 import TrendingArticle from "./TrendingArticle/TrendingArticle";
 
 import Register from './../Register/Register';
+import Contact from "../Contact/Contact";
 
 
 
@@ -27,6 +28,7 @@ const Home = () => {
             <Count></Count>
             <Customer></Customer>
            <Plans></Plans>
+           <Contact></Contact>
            <Footer></Footer>
            
         </div>

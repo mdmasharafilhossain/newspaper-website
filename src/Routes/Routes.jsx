@@ -23,6 +23,7 @@ import Patment from "../Components/Payment/Patment";
 import Statistics from "../Components/DashBoard/Statisctics/Statistics";
 import PrivateRoute from "../Components/PrivateRoute/PrivateRoute";
 import Feedback from "../Components/Feedback/Feedback";
+import UserFeedback from "../Components/UserFeedback/UserFeedback";
 
 export const router = createBrowserRouter([
     {
@@ -109,6 +110,10 @@ export const router = createBrowserRouter([
             {
                path:"/dashboard/statistics",
                element:<Statistics></Statistics>
+            },
+            {
+               path:"/dashboard/userFeedback",
+               element:<UserFeedback></UserFeedback>
             }
 
       ]
