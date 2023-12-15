@@ -3,7 +3,7 @@ import UseAxiosSecure from "../../../../Hooks/UseAxiosSecure/UseAxiosSecure";
 
 
 const MyArticleTable = ({user,index,refetch}) => {
-    const {_id,image,title} = user;
+    const {_id,image,title,status} = user;
     const axiosSucure = UseAxiosSecure();
     
     const handleDelete = (user) =>{
@@ -79,7 +79,7 @@ const MyArticleTable = ({user,index,refetch}) => {
          
         </td>
         <td>
-        <button className="btn btn-ghost">Approved</button>
+        <button className="btn btn-ghost">{user.status}</button>
           
          
         </td>

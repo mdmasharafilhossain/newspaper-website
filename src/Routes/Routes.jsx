@@ -22,6 +22,7 @@ import PremiumArticleDetails from './../Components/Home/Navbar/PremiumArticle/Pr
 import Patment from "../Components/Payment/Patment";
 import Statistics from "../Components/DashBoard/Statisctics/Statistics";
 import PrivateRoute from "../Components/PrivateRoute/PrivateRoute";
+import Feedback from "../Components/Feedback/Feedback";
 
 export const router = createBrowserRouter([
     {
@@ -66,14 +67,19 @@ export const router = createBrowserRouter([
             element:<PrivateRoute><PremiumArticle></PremiumArticle></PrivateRoute>
          },
          {
+            path:"/feedback",
+            element:<Feedback></Feedback>
+         },
+         {
             path:"/articleDetails/:id",
             element:<PremiumArticleDetails></PremiumArticleDetails>,
-            loader: ()=>fetch('https://newspaper-server-rosy.vercel.app/premiumArticle')
+            loader: ()=>fetch('http://localhost:5000/premiumArticle')
+            // loader: ()=>fetch('https://newspaper-server-rosy.vercel.app/premiumArticle')
          },
          {
             path:"/serviceDetails/:id",
             element:<PrivateRoute><ArticleDetails></ArticleDetails></PrivateRoute>,
-            loader: ()=>fetch('https://newspaper-server-rosy.vercel.app/article')
+            loader: ()=>fetch('http://localhost:5000/article')
          },
          {
             path:"/payment",

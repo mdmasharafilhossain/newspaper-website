@@ -7,7 +7,7 @@ const AllArticles = ({art,refetch}) => {
     
     const AxiosPublic = UseAxiosPublic();
     const navigate = useNavigate();
-    const {_id,title,image,publisher,description,email,tag,views,author_name,author_photo,date,name} =art;
+    const {_id,title,image,publisher,description,email,tag,views,author_name,author_photo,date,name,status} =art;
     const [isPremium, setIsPremium] = useState(false);
     const LimitDes = (description, limit) => {
         const words = description.split(' ');
@@ -73,6 +73,30 @@ const AllArticles = ({art,refetch}) => {
           });
     }
 
+    const handleAccept = id =>{
+        console.log(id);
+        AxiosPublic.patch(`/article/${id}`)
+    .then(res=>{
+        console.log(res.data);
+
+        if(res.data.modifiedCount > 0){
+            refetch();
+            console.log("Article Added Database");
+            AxiosPublic.post('/acceptedArticle',art)
+            .then(res=>console.log(res.data));
+            
+            // Swal.fire({
+            //     title: 'Done',
+            //     text: `${title} Is Premium Now`,
+            //     icon: 'success',
+            //     confirmButtonText: 'Ok'
+            // });
+            
+        }
+    })
+
+    }
+
     return (
         <div>
             <div>
@@ -104,7 +128,9 @@ const AllArticles = ({art,refetch}) => {
                         <p className="text-xl font-bold text-center border-2 bg-red-600 text-white">Publisher:{name}</p>
                     </div> */}
                     <div className="flex justify-around gap-2">
-                        <button className="btn w-1/2">Approve</button>
+                       {
+                        status == 'accept' ? <button >Accepted</button> : <button onClick={()=>handleAccept(art._id)}>Accept</button>
+                       }
                         <button className="btn w-1/2">Decline</button>
                     </div>
                     <div className="flex justify-around gap-2">

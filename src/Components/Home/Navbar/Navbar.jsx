@@ -20,14 +20,15 @@ const Navbar = () => {
         >
             Home
         </NavLink></li>
-        <li><NavLink
+        <li><a href='#register'><NavLink
             to="/register" style={{ fontWeight: "bold", fontSize: "20px", }}
             className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "text-red-700 underline" : ""
             }
         >
            Register
-        </NavLink></li>
+        </NavLink></a></li>
+       
        {
         user ? 
         <>
@@ -79,6 +80,14 @@ const Navbar = () => {
         >
            Premium Article
         </NavLink></li>
+        <li><NavLink
+            to="/feedback" style={{ fontWeight: "bold", fontSize: "20px", }}
+            className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "text-red-700 underline" : ""
+            }
+        >
+         Feedback
+        </NavLink></li>
         </>
 
         :
@@ -111,9 +120,9 @@ const Navbar = () => {
                             {NavLinks}
                         </ul>
                     </div>
-                    <div className="navbar-end flex lg:mr-10 lg:space-x-2">
+                    <div className="navbar-end flex lg:mr-5 lg:space-x-1">
                     <div>
-                            <h2 className="mt-4 text-xl font-bold text-orange-600-600">{user?.displayName
+                            <h2 className="mt-4 text-base font-bold text-orange-600-600">{user?.displayName
 
                             }</h2>
                         </div>

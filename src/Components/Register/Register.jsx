@@ -111,7 +111,7 @@ const Register = () => {
 
     return (
         <div>
-            <div className="py-40">
+            <div id="register" className="py-40">
                 <div className="mt-[100px] md:mt-10 lg:mt-10 text-center">
                     <div className="p-5">
                         <h2 className="text-4xl font-bold text-red-600">Please Register</h2>

@@ -1,28 +1,21 @@
 import { useForm } from "react-hook-form";
-import UseAxiosPublic from "../../../Hooks/UseAxiosPublic/UseAxiosPublic";
-import { AuthContext } from "../../../AuthProviders/AuthProviders";
-import { useContext, useEffect } from "react";
-import Swal from "sweetalert2";
 
-const image_Hosting_key = "23272cf172fd85ad9006a154ec724204";
-const Imgae_hosting_key = `https://api.imgbb.com/1/upload?key=${image_Hosting_key}`
-const AddArticle = () => {
-    useEffect(()=>{
-        document.title = "The Independent | Add Article"
-      },[]);
+
+import { useContext,  } from "react";
+import Swal from "sweetalert2";
+import UseAxiosPublic from "../Hooks/UseAxiosPublic/UseAxiosPublic";
+import { AuthContext } from "../AuthProviders/AuthProviders";
+
+
+const Form = () => {
+    
     const {user} = useContext(AuthContext)
     const { register, handleSubmit } = useForm();
     const axiosPublic = UseAxiosPublic();
     const onSubmit = async (data) => {
         console.log(data);
-        const ImageFile = {image:data.image[0]}
-       const res = await axiosPublic.post(Imgae_hosting_key,ImageFile,{
-        headers: {
-            'content-type': 'multipart/form-data'
-        }
-       });
-       console.log(res.data);
-       if(res.data.success){
+        
+      
         const articleInfo = {
             title: data.title,
             // image: res.data.data.display_url,
@@ -33,6 +26,7 @@ const AddArticle = () => {
             status:'pending'
 
         }
+        
         // console.log(articleInfo);
         const ArticleRes = await axiosPublic.post('/article',articleInfo);
         console.log(ArticleRes.data);
@@ -45,7 +39,7 @@ const AddArticle = () => {
                 timer: 1500
               });
         }
-       }
+       
     
     }
     return (
@@ -101,17 +95,17 @@ const AddArticle = () => {
 
                     </select>
                     </div>
-                    <div>
+                    {/* <div>
                     <input 
                     {...register("image")}
                     type="file" 
                     className="file-input file-input-bordered w-full max-w-xs" />
-                    </div>
+                    </div> */}
                     <input className="btn w-full bg-red-600 text-white" type="submit" />
                 </form>
             </div>
         </div>
     );
-};
 
-export default AddArticle;
+};
+export default Form;
