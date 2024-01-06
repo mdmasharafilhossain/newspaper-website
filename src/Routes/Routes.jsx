@@ -74,13 +74,13 @@ export const router = createBrowserRouter([
          {
             path:"/articleDetails/:id",
             element:<PremiumArticleDetails></PremiumArticleDetails>,
-            loader: ()=>fetch('http://localhost:5000/premiumArticle')
-            // loader: ()=>fetch('https://newspaper-server-rosy.vercel.app/premiumArticle')
+            // loader: ()=>fetch('http://localhost:5000/premiumArticle')
+            loader: ()=>fetch('https://newspaper-server-rosy.vercel.app/premiumArticle')
          },
          {
             path:"/serviceDetails/:id",
             element:<PrivateRoute><ArticleDetails></ArticleDetails></PrivateRoute>,
-            loader: ()=>fetch('http://localhost:5000/article')
+            loader: ()=>fetch('https://newspaper-server-rosy.vercel.app/article')
          },
          {
             path:"/payment",

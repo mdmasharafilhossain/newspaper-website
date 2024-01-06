@@ -8,7 +8,7 @@ const AllArticle = () => {
     const [search,setSearch] = useState('');
 
     useEffect(() => {
-        fetch(`http://localhost:5000/acceptedArticle?search=${search}`)
+        fetch(`https://newspaper-server-rosy.vercel.app/acceptedArticle?search=${search}`)
             .then(res => res.json())
             .then(data => setart(data))
     }, [search]);

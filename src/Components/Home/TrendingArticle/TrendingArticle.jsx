@@ -15,7 +15,7 @@ const TrendingArticle = () => {
     const [art,setart] = useState([]);
 
     useEffect(()=>{
-        fetch("http://localhost:5000/article")
+        fetch("https://newspaper-server-rosy.vercel.app/article")
     .then(res =>res.json())
     .then(data =>{
       const sortedArticles = data.sort((a, b) => b.views - a.views);
