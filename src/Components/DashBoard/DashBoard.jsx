@@ -28,7 +28,7 @@ const DashBoard = () => {
                 <li  className="font-bold text-xl text-white"><NavLink to="/">Go to Home</NavLink></li>
                 <li  className="font-bold text-xl text-white"><NavLink to="/dashboard/statistics">Statistics</NavLink></li>
                 <li  className="font-bold text-xl text-white"><NavLink to="/dashboard/userFeedback">Feedback</NavLink></li>
-                <Navigate to="/dashboard/statistics"></Navigate>
+                <Navigate to="/dashboard/statistics">  </Navigate>
            </ul>
            
             </div>
