@@ -10,9 +10,13 @@ import { Pagination } from 'swiper/modules';
 
 import { Link } from "react-router-dom";
 import TrendArticle from "../TrendArticle/TrendArticle";
+import { useMediaQuery } from "react-responsive";
 
 const TrendingArticle = () => {
     const [art,setart] = useState([]);
+    
+
+
 
     useEffect(()=>{
         fetch("https://newspaper-server-rosy.vercel.app/article")
@@ -23,7 +27,11 @@ const TrendingArticle = () => {
     })
     },[]);
     
-  
+    const isMobile = useMediaQuery({ maxWidth: 640 });
+    const isTablet = useMediaQuery({ minWidth: 641, maxWidth: 1023 });
+    const isDesktop = useMediaQuery({ minWidth: 1024 });
+
+    const slidesPerView = isMobile ? 1 : isTablet ? 2 : 4;
     return (
         <div className="mt-32">
             <div className="mx-auto text-center w-4/12 ">
@@ -32,7 +40,7 @@ const TrendingArticle = () => {
 
 <Swiper
         
-        slidesPerView={4}
+        slidesPerView={slidesPerView }
         spaceBetween={30}
         centeredSlides={true}
         pagination={{

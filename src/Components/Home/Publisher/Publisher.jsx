@@ -20,10 +20,10 @@ const Publisher = () => {
 
     })
     return (
-        <div className="mt-20">
+        <div className="mt-20 container mx-auto">
             <h1 className="text-5xl text-red-700 border-red-400 text-center font-bold  mb-12 py-4">All Publisher </h1>
 
-            <div className="grid grid-cols-1 container mx-auto lg:ml-80 gap-10 md:grid-cols-2 lg:grid-cols-2">
+            <div className="grid gap-5 ml-24 md:ml-28 lg:ml-40 grid-cols-1   md:grid-cols-2 lg:grid-cols-4">
                {
                 publisher.map(publish=> <div key={publish._id}>
 

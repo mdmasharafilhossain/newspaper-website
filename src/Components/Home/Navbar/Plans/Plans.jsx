@@ -7,11 +7,11 @@ const Plans = () => {
             <div className="mx-auto text-center w-4/12 ">
             <h1 className="text-5xl text-red-700 border-red-400 text-center font-bold  mb-12 py-4">Our Plans</h1>
             </div>
-            <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
+            <div className="grid lg:ml-20 gap-10 md:gap-10  lg:gap-0 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
               {/* First Page */}
-               <div className="border-2 shadow-lg border-pink-300 rounded-lg py-5 w-3/4">
+               <div className="border-2 shadow-lg border-pink-300 rounded-lg py-5 md:w-[100%] lg:w-3/4">
                 <h2 className="mb-10 ml-5 border rounded-md font-bold w-40 px-2 py-1 bg-pink-300">Free For 1 Months</h2>
-                <div className="flex lg:ml-5   gap-40 mb-10">
+                <div className="flex ml-5 md:ml-5 lg:ml-5 gap-32 md:gap-28 lg:gap-40 mb-10">
                      <div className="font-bold uppercase">
                         <h2> Premium<br></br>
                          Individual</h2>
@@ -37,8 +37,8 @@ const Plans = () => {
 
                </div>
               {/* Second Page */}
-               <div className="border-2 shadow-lg border-yellow-300 rounded-lg py-5 w-3/4">
-                <div className="flex gap-32">
+               <div className="border-2 shadow-lg border-yellow-300 rounded-lg py-5 d:w-[95%] lg:w-3/4">
+                <div className="flex gap-28 md:gap-28 lg:gap-32">
                 <h2 className="  ml-5 font-bold text-xl">Premium Duo</h2>
                 <div >
                     <p className="font-bold text-xl">$14.99</p>
@@ -63,8 +63,8 @@ const Plans = () => {
 
                </div>
               {/* Third Page */}
-               <div className="border-2 shadow-lg border-blue-300 rounded-lg py-5 w-3/4">
-                <div className="flex gap-32">
+               <div className="border-2 shadow-lg border-blue-300 rounded-lg py-5 d:w-[95%] lg:w-3/4">
+                <div className="flex gap-24 md:gap-24 lg:gap-28">
                 <h2 className="  ml-5 font-bold text-xl">Premium Family</h2>
                 <div >
                     <p className="font-bold text-xl">$16.99</p>

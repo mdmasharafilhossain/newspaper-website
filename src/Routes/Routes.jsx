@@ -81,6 +81,7 @@ export const router = createBrowserRouter([
             path:"/serviceDetails/:id",
             element:<PrivateRoute><ArticleDetails></ArticleDetails></PrivateRoute>,
             loader: ()=>fetch('https://newspaper-server-rosy.vercel.app/article')
+            // loader: ()=>fetch('http://localhost:5000/article')
          },
          {
             path:"/payment",
