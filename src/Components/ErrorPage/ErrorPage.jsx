@@ -4,7 +4,7 @@ import error from '../../assets/404-error-page-not-found-design-template-vector-
 const ErrorPage = () => {
     return (
         <div >
-            <div className='lg:ml-96'>
+             <div className='lg:ml-96'>
             <img src={error} alt="" />
             </div>
             <div>
