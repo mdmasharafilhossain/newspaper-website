@@ -120,16 +120,16 @@ const Navbar = () => {
                             {NavLinks}
                         </ul>
                     </div>
-                    <div className="navbar-end flex lg:mr-5 lg:space-x-1">
+                    <div className="navbar-end flex lg:mr-5 space-x-1">
                     <div>
-                            <h2 className="mt-4 text-base font-bold text-orange-600-600">{user?.displayName
-
-                            }</h2>
+                    <h2 className="mt-4 text-base hidden md:block lg:block font-bold text-orange-600-600">
+        {user?.displayName && user.displayName.length > 12 ? `${user.displayName.substring(0, 12)}` : user.displayName}
+    </h2>
                         </div>
                         <div>
                         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                     <Link to="/UserProfile"><div className="w-12 rounded-full mt-3">
-                                        <img src={user?.photoURL} />
+                                        <img className='w-8 rounded-full' src={user?.photoURL} />
                                     </div></Link>
                                 </label>
                         </div>
