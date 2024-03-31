@@ -23,9 +23,9 @@ const Contact = () => {
     return (
         <div className="mt-10 container mx-auto mb-10">
             <h1 className="text-5xl text-red-700 border-red-400 text-center font-bold  mb-12 py-4">Contact Us</h1>
-            <form className='border-4 shadow-xl  border-red-600 lg:p-20 lg:mr-72 lg:ml-96 mt-20' ref={form} onSubmit={sendEmail}>
+            <form className='border-4 shadow-xl  border-red-600 p-7 md:p-10 lg:p-20 lg:mr-72 lg:ml-96 mt-20' ref={form} onSubmit={sendEmail}>
            <h2 className='text-4xl font-bold text-center mb-10 text-red-600'>Contact Us</h2>
-      <div className='flex md:gap-32 lg:gap-16'>
+      <div className='flex gap-5 md:gap-32 lg:gap-16'>
       <label className="form-control  w-full max-w-xs">
   <div className="label">
     <span className="label-text">Name</span>
