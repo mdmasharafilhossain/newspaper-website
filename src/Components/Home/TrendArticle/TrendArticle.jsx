@@ -14,7 +14,7 @@ const TrendArticle = ({article}) => {
     return (
         <div >
             <div>
-                <div className="card w-96 md:w-96 lg:w-96 h-[600px] md:h-[700px] lg:h-[600px] rounded-none bg-base-100 shadow-2xl">
+                <div className="card  w-96 md:w-96 lg:w-[370px] h-[600px] md:h-[700px] lg:h-[600px] rounded-none bg-base-100 shadow-2xl">
                 <figure><img className="h-60 md:h-60 lg:h-60 w-full md:w-full lg:w-full"  src={image} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title text-center font-bold text-2xl md:text-2xl lg:text-2xl text-red-600">{title}</h2>

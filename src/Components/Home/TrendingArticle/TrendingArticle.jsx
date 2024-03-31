@@ -31,7 +31,7 @@ const TrendingArticle = () => {
     const isTablet = useMediaQuery({ minWidth: 641, maxWidth: 1023 });
     const isDesktop = useMediaQuery({ minWidth: 1024 });
 
-    const slidesPerView = isMobile ? 1 : isTablet ? 2 : 4;
+    const slidesPerView = isMobile ? 1 : isTablet ? 2 : 5;
     return (
         <div className="mt-32">
             <div className="mx-auto text-center w-4/12 ">
@@ -55,7 +55,7 @@ const TrendingArticle = () => {
             }
         </SwiperSlide> */}
         {
-            art.slice(0,6).map(article => <SwiperSlide key={article.id} article={article}>
+            art.slice(0,15).map(article => <SwiperSlide key={article.id} article={article}>
     
                 <TrendArticle article={article}></TrendArticle>
             </SwiperSlide>)
