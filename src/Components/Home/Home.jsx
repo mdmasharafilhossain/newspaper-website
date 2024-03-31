@@ -22,6 +22,7 @@ const Home = () => {
     return (
         <div className="mt-20">
             <TrendingArticle></TrendingArticle>
+            <div className="mx-5">
             <AboutUs></AboutUs>
             <Publisher></Publisher>
             <ShowModal></ShowModal>
@@ -29,8 +30,9 @@ const Home = () => {
             <Customer></Customer>
            <Plans></Plans>
            <Contact></Contact>
-           <Footer></Footer>
            
+            </div>
+            <Footer></Footer>
         </div>
     );
 };
