@@ -123,8 +123,12 @@ const Navbar = () => {
                     <div className="navbar-end flex lg:mr-5 space-x-1">
                     <div>
                     <h2 className="mt-4 text-base hidden md:block lg:block font-bold text-orange-600-600">
-        {user?.displayName && user?.displayName.length > 12 ? `${user?.displayName.substring(0, 12)}` : user?.displayName}
-    </h2>
+    {user?.displayName ? (
+        user.displayName.split(' ').slice(0, 2).join(' ')
+    ) : (
+        ""
+    )}
+</h2>
                         </div>
                         <div>
                         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
