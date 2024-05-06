@@ -30,3 +30,8 @@
 - Node.js
 - Mongodb
 - Express.js 
+
+### Login Info
+Admin Gmail: final@gmail.com
+
+Admin Password: Mahi@1
