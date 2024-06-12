@@ -25,7 +25,7 @@ const AddArticle = () => {
        if(res.data.success){
         const articleInfo = {
             title: data.title,
-            // image: res.data.data.display_url,
+            image: res.data.data.display_url,
             publisher: data.publisher,
             description: data.description,
             tag: data.tag,

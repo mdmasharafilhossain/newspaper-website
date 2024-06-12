@@ -6,7 +6,7 @@ import AllArticles from "../../../AllArtciles/AllArticles";
 const AllArticle = () => {
     const [art, setart] = useState([]);
     const [search,setSearch] = useState('');
-
+//
     useEffect(() => {
         fetch(`https://newspaper-server-rosy.vercel.app/acceptedArticle?search=${search}`)
             .then(res => res.json())
