@@ -28,7 +28,7 @@ const AllArticles = ({art,refetch}) => {
         description,
 }
     console.log(ArticlePremiumInfo);
-    AxiosPublic.post('/premiumArticle',ArticlePremiumInfo)
+    AxiosPublic.post('https://newspaper-server-rosy.vercel.app/premiumArticle',ArticlePremiumInfo)
     .then(res=>{
         console.log(res.data);
         if(res.data.insertedId){
@@ -57,7 +57,7 @@ const AllArticles = ({art,refetch}) => {
             confirmButtonText: "Yes, delete it!"
           }).then(async (result) => {
             if (result.isConfirmed) {
-                const res = await AxiosPublic.delete(`/article/premium/${_id}`);
+                const res = await AxiosPublic.delete(`https://newspaper-server-rosy.vercel.app/acceptedArticle/${_id}`);
                 console.log(res.data);
             if(res.data.deletedCount){
                 refetch();
@@ -75,7 +75,7 @@ const AllArticles = ({art,refetch}) => {
 
     const handleAccept = id =>{
         console.log(id);
-        AxiosPublic.patch(`/article/${id}`)
+        AxiosPublic.patch(`https://newspaper-server-rosy.vercel.app/article/${id}`)
     .then(res=>{
         console.log(res.data);
 

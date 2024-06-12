@@ -18,7 +18,7 @@ const AllArtile = () => {
         queryKey: ['article',page],
         enabled:!loading,
         queryFn: async () => {
-            const res = await axiosSecure.get(`/article/premium?page=${page}&limit=${limit}`);
+            const res = await axiosSecure.get(`https://newspaper-server-rosy.vercel.app/article/premium?page=${page}&limit=${limit}`);
             console.log(res.data)
             return res.data;
             
